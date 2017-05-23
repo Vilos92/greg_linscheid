@@ -1,0 +1,11 @@
+# Vim
+*.swp
+
+# Python
+*.pyc
+
+# Sass
+*.scssc
+
+# Dependency directories
+node_modules

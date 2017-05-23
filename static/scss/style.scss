@@ -1,0 +1,172 @@
+$titanium-white: #FFFFFF;
+$midnight-black: #000000;
+
+$sunset-blue: #283859;
+$sunset-orange: #C45050;
+
+$font-open-sans: 'Open Sans', sans-serif;
+$font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$text-shadow-down: 0.03em 0.03em 0px #B2B2B2, 0.08em 0.08em 0px rgba(0, 0, 0, 0.5);
+
+$box-shadow-slant: 5px 5px 10px #888888;
+
+$body-background-tint: 0.3; // Colored opacity to apply over background image
+$body-background-image: url('/static/images/bg_stars.jpg');
+$body-font: $font-open-sans;
+
+$header-height: 30vmin;
+$header-font: $font-open-sans;
+$header-color: $titanium-white;
+$header-background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.0));
+
+$upper-nav-bar-color: $sunset-blue;
+$upper-nav-bar-hover-color: $sunset-orange;
+$upper-nav-bar-font: $font-helvetica;
+
+$social-media-bar-color: $sunset-blue;
+$social-media-bar-hover-color: $sunset-orange;
+
+$main-content-background: rgba(255, 255, 255, 0.95);
+
+%no-buffer {
+    margin: 0;
+    padding: 0;
+}
+
+%no-select {
+    pointer-events: none;
+    user-select: none;
+
+}
+
+%hidden-nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@mixin text-vertical-center($height) {
+    height: $height;
+    line-height: $height;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+
+    background: $body-background-image no-repeat center center fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    font-family: $body-font;
+}
+
+.main-nav-spacer {
+    @extend %no-select;
+
+    position: relative;
+    top: 0;
+
+    z-index: -1;
+    opacity: 0;
+
+    width: 100%;
+}
+
+.main-nav {
+    z-index: 2;
+
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+}
+
+.header-container {
+    @extend %hidden-nowrap;
+
+    position: relative;
+
+    height: $header-height;
+
+    font-family: $header-font;
+    color: $header-color;
+    text-align: center;
+
+    background: $header-background;
+}
+
+.header-container > h1, .header-container > h2 {
+    @extend %no-buffer;
+    @include text-vertical-center($header-height);
+
+    width: 100%;
+
+    position: absolute;
+
+    text-shadow: $text-shadow-down;
+}
+
+.header-container > h1 {
+    font-size: 8vmin;
+}
+
+.header-container > h2 {
+    font-size: 4vmin;
+    margin-top: 6.5vmin;
+}
+
+.upper-nav-bar {
+    font: $upper-nav-bar-font;
+    text-align: center;
+
+    margin-bottom: 0.5em;
+}
+
+.upper-nav-bar > .upper-nav-bar-item {
+    display: inline-block;
+
+    font-size: 1.5em;
+
+    margin: 0 1em 0 1em;
+}
+
+.upper-nav-bar > .upper-nav-bar-item > a {
+    color: $upper-nav-bar-color;
+}
+
+.upper-nav-bar > .upper-nav-bar-item > a:hover {
+    color: $upper-nav-bar-hover-color;
+}
+
+.social-media-bar {
+    @extend %hidden-nowrap;
+
+    text-align: center;
+
+    font-size: 3vmin;
+}
+
+.social-media-bar > a {
+    color: $social-media-bar-color;
+}
+
+.social-media-bar > a:hover {
+    color: $social-media-bar-hover-color;
+}
+
+$main-column-border-radius: 5px;
+
+.main-column {
+    background-color: $main-content-background;
+
+    padding: 2em;
+
+    border-radius: 5px;
+
+    margin-bottom: 2em;
+}
