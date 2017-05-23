@@ -31,9 +31,6 @@ function AboutContent(props) {
 }
 
 function ProjectsContent(props) {
-    const project = 'Here is a project';
-    console.log(project);
-
     return (
         <div>
             <h2>Satellite Data Acquisition</h2>
